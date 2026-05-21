@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/biggora/a11y-lite-wrapper/issues"
   },
-  "homepage": "https://github.com/biggora/a11y-lite-wrapper#readme",
+  "homepage": "https://biggora.github.io/a11y-lite-wrapper/",
   "type": "module",
   "sideEffects": false,
   "files": [
@@ -87,6 +87,9 @@
   },
   "scripts": {
     "build": "tsup",
+    "demo": "vite demo --host 0.0.0.0",
+    "demo:build": "vite build demo",
+    "demo:preview": "vite preview demo",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint:package": "publint && attw --pack ."

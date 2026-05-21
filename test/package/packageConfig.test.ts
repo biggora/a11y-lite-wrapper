@@ -102,7 +102,7 @@ describe("package configuration", () => {
     expect(packageJson.bugs).toEqual({
       url: "https://github.com/biggora/a11y-lite-wrapper/issues"
     });
-    expect(packageJson.homepage).toBe("https://github.com/biggora/a11y-lite-wrapper#readme");
+    expect(packageJson.homepage).toBe("https://biggora.github.io/a11y-lite-wrapper/");
   });
 
   it("exports the required subpaths with the required condition order", () => {
