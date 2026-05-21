@@ -1,7 +1,27 @@
 {
   "name": "a11y-lite-wrapper",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and combobox widgets.",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "aria",
+    "wai-aria",
+    "headless",
+    "combobox",
+    "listbox",
+    "keyboard-navigation",
+    "react"
+  ],
+  "author": "biggora",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biggora/a11y-lite-wrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/biggora/a11y-lite-wrapper/issues"
+  },
+  "homepage": "https://github.com/biggora/a11y-lite-wrapper#readme",
   "type": "module",
   "sideEffects": false,
   "files": [

@@ -7,6 +7,16 @@ interface PackageJson {
   devDependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
   peerDependenciesMeta?: Record<string, { optional?: boolean }>;
+  keywords?: string[];
+  author?: string;
+  repository?: {
+    type?: string;
+    url?: string;
+  };
+  bugs?: {
+    url?: string;
+  };
+  homepage?: string;
   sideEffects?: boolean;
   exports?: Record<
     string,
@@ -53,6 +63,29 @@ describe("package configuration", () => {
 
   it("declares the package as side-effect free", () => {
     expect(packageJson.sideEffects).toBe(false);
+  });
+
+  it("declares npm metadata for discovery and repository links", () => {
+    expect(packageJson.keywords).toEqual([
+      "accessibility",
+      "a11y",
+      "aria",
+      "wai-aria",
+      "headless",
+      "combobox",
+      "listbox",
+      "keyboard-navigation",
+      "react"
+    ]);
+    expect(packageJson.author).toBe("biggora");
+    expect(packageJson.repository).toEqual({
+      type: "git",
+      url: "git+https://github.com/biggora/a11y-lite-wrapper.git"
+    });
+    expect(packageJson.bugs).toEqual({
+      url: "https://github.com/biggora/a11y-lite-wrapper/issues"
+    });
+    expect(packageJson.homepage).toBe("https://github.com/biggora/a11y-lite-wrapper#readme");
   });
 
   it("exports the required subpaths with the required condition order", () => {
