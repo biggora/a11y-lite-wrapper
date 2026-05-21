@@ -8,6 +8,10 @@ Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and 
 
 `a11y-lite-wrapper` does not render elements, ship styles, move DOM focus between options, or install global listeners. It returns prop getters and event handlers that you spread onto your own markup.
 
+## Demo
+
+[demo page](https://biggora.github.io/a11y-lite-wrapper/)
+
 ## Install
 
 ```sh
