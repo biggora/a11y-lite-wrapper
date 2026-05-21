@@ -11,6 +11,9 @@ interface PackageJson {
   publishConfig?: {
     access?: string;
   };
+  engines?: {
+    node?: string;
+  };
   keywords?: string[];
   author?: string;
   license?: string;
@@ -62,6 +65,7 @@ describe("package configuration", () => {
       vitest: expect.any(String),
       "@testing-library/react": expect.any(String),
       publint: expect.any(String),
+      vite: expect.any(String),
       "@arethetypeswrong/cli": expect.any(String)
     });
   });
@@ -74,6 +78,9 @@ describe("package configuration", () => {
     expect(packageJson.packageManager).toBe("pnpm@10.33.4");
     expect(packageJson.publishConfig).toEqual({
       access: "public"
+    });
+    expect(packageJson.engines).toEqual({
+      node: ">=18"
     });
     expect(packageJson.keywords).toEqual([
       "accessibility",
