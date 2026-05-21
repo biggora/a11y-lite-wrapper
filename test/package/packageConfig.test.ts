@@ -1,0 +1,90 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+
+interface PackageJson {
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+  peerDependenciesMeta?: Record<string, { optional?: boolean }>;
+  sideEffects?: boolean;
+  exports?: Record<
+    string,
+    {
+      types?: {
+        import?: string;
+        require?: string;
+      };
+      import?: string;
+      require?: string;
+      default?: string;
+    }
+  >;
+}
+
+const packageJson = JSON.parse(
+  readFileSync(resolve(process.cwd(), "package.json"), "utf8")
+) as PackageJson;
+
+describe("package configuration", () => {
+  const expectedExports = {
+    ".": "./dist/index",
+    "./combobox": "./dist/combobox/index",
+    "./listbox": "./dist/listbox/index",
+    "./keyboard": "./dist/keyboard/index",
+    "./react": "./dist/react/index"
+  } as const;
+
+  it("keeps runtime dependencies empty and marks React as an optional peer", () => {
+    expect(packageJson.dependencies).toEqual({});
+    expect(packageJson.peerDependencies).toHaveProperty("react");
+    expect(packageJson.peerDependenciesMeta?.react?.optional).toBe(true);
+    expect(packageJson.devDependencies).toMatchObject({
+      react: expect.any(String),
+      "react-dom": expect.any(String),
+      typescript: expect.any(String),
+      tsup: expect.any(String),
+      vitest: expect.any(String),
+      "@testing-library/react": expect.any(String),
+      publint: expect.any(String),
+      "@arethetypeswrong/cli": expect.any(String)
+    });
+  });
+
+  it("declares the package as side-effect free", () => {
+    expect(packageJson.sideEffects).toBe(false);
+  });
+
+  it("exports the required subpaths with the required condition order", () => {
+    expect(Object.keys(packageJson.exports ?? {})).toEqual([
+      ".",
+      "./combobox",
+      "./listbox",
+      "./keyboard",
+      "./react"
+    ]);
+
+    for (const exportPath of Object.keys(expectedExports)) {
+      expect(Object.keys(packageJson.exports?.[exportPath] ?? {})).toEqual([
+        "types",
+        "import",
+        "require",
+        "default"
+      ]);
+    }
+  });
+
+  it("maps ESM and CJS declarations for every exported subpath", () => {
+    for (const [exportPath, distPath] of Object.entries(expectedExports)) {
+      expect(packageJson.exports?.[exportPath]).toEqual({
+        types: {
+          import: `${distPath}.d.ts`,
+          require: `${distPath}.d.cts`
+        },
+        import: `${distPath}.mjs`,
+        require: `${distPath}.cjs`,
+        default: `${distPath}.mjs`
+      });
+    }
+  });
+});

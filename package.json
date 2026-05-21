@@ -1,0 +1,88 @@
+{
+  "name": "a11y-lite-wrapper",
+  "version": "0.0.0",
+  "description": "Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and combobox widgets.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.ts",
+        "require": "./dist/index.d.cts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./combobox": {
+      "types": {
+        "import": "./dist/combobox/index.d.ts",
+        "require": "./dist/combobox/index.d.cts"
+      },
+      "import": "./dist/combobox/index.mjs",
+      "require": "./dist/combobox/index.cjs",
+      "default": "./dist/combobox/index.mjs"
+    },
+    "./listbox": {
+      "types": {
+        "import": "./dist/listbox/index.d.ts",
+        "require": "./dist/listbox/index.d.cts"
+      },
+      "import": "./dist/listbox/index.mjs",
+      "require": "./dist/listbox/index.cjs",
+      "default": "./dist/listbox/index.mjs"
+    },
+    "./keyboard": {
+      "types": {
+        "import": "./dist/keyboard/index.d.ts",
+        "require": "./dist/keyboard/index.d.cts"
+      },
+      "import": "./dist/keyboard/index.mjs",
+      "require": "./dist/keyboard/index.cjs",
+      "default": "./dist/keyboard/index.mjs"
+    },
+    "./react": {
+      "types": {
+        "import": "./dist/react/index.d.ts",
+        "require": "./dist/react/index.d.cts"
+      },
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.cjs",
+      "default": "./dist/react/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint:package": "publint && attw --pack ."
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18.0.0 || >=19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "publint": "^0.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.8.0",
+    "vitest": "^2.1.8"
+  }
+}
