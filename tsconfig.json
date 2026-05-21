@@ -8,6 +8,24 @@
     ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "a11y-lite-wrapper": [
+        "src/index.ts"
+      ],
+      "a11y-lite-wrapper/combobox": [
+        "src/combobox/index.ts"
+      ],
+      "a11y-lite-wrapper/listbox": [
+        "src/listbox/index.ts"
+      ],
+      "a11y-lite-wrapper/keyboard": [
+        "src/keyboard/index.ts"
+      ],
+      "a11y-lite-wrapper/react": [
+        "src/react/index.ts"
+      ]
+    },
     "jsx": "react-jsx",
     "strict": true,
     "exactOptionalPropertyTypes": true,
