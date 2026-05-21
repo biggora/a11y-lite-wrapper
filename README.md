@@ -10,7 +10,7 @@ Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and 
 
 ## Demo
 
-[demo page](https://biggora.github.io/a11y-lite-wrapper/)
+[demo page](https://biggora.github.io/a11y-lite-wrapper/?target=_blank)
 
 ## Install
 
