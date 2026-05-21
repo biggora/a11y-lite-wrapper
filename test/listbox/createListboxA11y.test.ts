@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { createListboxA11y } from "../../src/listbox";
+import { createListboxA11y } from "../../src";
 
 interface TestOption {
   readonly id: string;

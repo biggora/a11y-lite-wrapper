@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getKeyboardNavigationResult } from "../../src/keyboard";
+import { getKeyboardNavigationResult } from "../../src";
 
 interface TestItem {
   readonly id: string;

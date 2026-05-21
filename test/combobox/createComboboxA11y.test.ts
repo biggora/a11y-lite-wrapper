@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { createComboboxA11y } from "../../src/combobox";
+import { createComboboxA11y } from "../../src";
 
 interface TestOption {
   readonly id: string;

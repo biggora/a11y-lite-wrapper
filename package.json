@@ -2,6 +2,7 @@
   "name": "a11y-lite-wrapper",
   "version": "0.1.0",
   "description": "Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and combobox widgets.",
+  "packageManager": "pnpm@10.33.4",
   "keywords": [
     "accessibility",
     "a11y",
@@ -14,6 +15,7 @@
     "react"
   ],
   "author": "biggora",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/biggora/a11y-lite-wrapper.git"
@@ -27,6 +29,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

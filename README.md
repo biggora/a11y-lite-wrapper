@@ -1,3 +1,7 @@
+[![npm version](https://img.shields.io/npm/v/a11y-lite-wrapper.svg)](https://www.npmjs.com/package/a11y-lite-wrapper)
+[![CI](https://img.shields.io/github/actions/workflow/status/biggora/a11y-lite-wrapper/ci.yml?branch=main)](https://github.com/biggora/a11y-lite-wrapper/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # a11y-lite-wrapper
 
 Zero-dependency headless WAI-ARIA helpers for keyboard navigation, listbox, and combobox widgets.
@@ -156,6 +160,6 @@ pnpm exec publint
 
 `pnpm exec attw --pack .` is included in `pnpm lint:package`, but the local tool currently crashes with `Cannot read properties of undefined (reading 'filename')` in this environment. `publint`, tests, type checking, and build pass.
 
-## Scope
+## License
 
-The MVP covers editable comboboxes, single-select listboxes, and shared keyboard navigation. It does not include Vue, menu/menubar patterns, popup positioning, async search, virtualization, multi-select, styling, or direct DOM focus management.
+[MIT](LICENSE).

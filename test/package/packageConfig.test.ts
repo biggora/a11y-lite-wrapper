@@ -7,8 +7,13 @@ interface PackageJson {
   devDependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
   peerDependenciesMeta?: Record<string, { optional?: boolean }>;
+  packageManager?: string;
+  publishConfig?: {
+    access?: string;
+  };
   keywords?: string[];
   author?: string;
+  license?: string;
   repository?: {
     type?: string;
     url?: string;
@@ -66,6 +71,10 @@ describe("package configuration", () => {
   });
 
   it("declares npm metadata for discovery and repository links", () => {
+    expect(packageJson.packageManager).toBe("pnpm@10.33.4");
+    expect(packageJson.publishConfig).toEqual({
+      access: "public"
+    });
     expect(packageJson.keywords).toEqual([
       "accessibility",
       "a11y",
@@ -78,6 +87,7 @@ describe("package configuration", () => {
       "react"
     ]);
     expect(packageJson.author).toBe("biggora");
+    expect(packageJson.license).toBe("MIT");
     expect(packageJson.repository).toEqual({
       type: "git",
       url: "git+https://github.com/biggora/a11y-lite-wrapper.git"
